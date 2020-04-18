@@ -271,22 +271,26 @@
 <blockquote>
 <p>To send an authentication code via sms:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="s1">'{"phone":"512-123-4567","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="se">\</span>
+ <span class="s1">'{"phone":"512-123-4567","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
 </code></pre>
 <blockquote>
 <p>To send an authentication code via email:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="s1">'{"email":"you@example.com","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="se">\ </span>
+ <span class="s1">'{"email":"you@example.com","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
 </code></pre>
 <blockquote>
 <p>To verify the sms code:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="s1">'{"phone":"512-123-4567","code":"4545"}'</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="se">\</span>
+ <span class="s1">'{"phone":"512-123-4567","code":"4545"}'</span>
 </code></pre>
 <blockquote>
 <p>To verify the email code:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="s1">'{"email":"you@example.com","code":"4545"}'</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="se">\</span>
+ <span class="s1">'{"email":"you@example.com","code":"4545"}'</span>
 </code></pre>
 <blockquote>
 <p>success returns key/secret pair and profile information:</p>
@@ -339,12 +343,14 @@ phone or email may be used for authentication, but not both
 <blockquote>
 <p>Check the existance of an account phone number:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/check_account -X POST -d <span class="s1">'{"phone":"512-123-4567","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/check_account -X POST -d <span class="se">\</span>
+ <span class="s1">'{"phone":"512-123-4567","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
 </code></pre>
 <blockquote>
 <p>Check the existance of an account email address:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/check_account -X POST -d <span class="s1">'{"email":"you@example.com","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/check_account -X POST -d <span class="se">\</span>
+ <span class="s1">'{"email":"you@example.com","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
 </code></pre>
 <blockquote>
 <p>success public profile information:</p>
@@ -391,7 +397,8 @@ phone or email may be used for checking an account, but not both
 <blockquote>
 <p>Create an account:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/create_account -X POST -d <span class="s1">'{"phone":"512-123-4567","email":"you@example.com","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/create_account -X POST -d <span class="se">\</span>
+ <span class="s1">'{"phone":"512-123-4567","email":"you@example.com","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
 </code></pre>
 <blockquote>
 <p>success returns key/secret pair and profile information:</p>
