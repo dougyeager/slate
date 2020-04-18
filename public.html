@@ -223,36 +223,6 @@
           </li>
           <li>
             <a href="#auth" class="toc-h1 toc-link" data-title="Auth">Auth</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#json-parameters" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#check-account" class="toc-h1 toc-link" data-title="Check Account">Check Account</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#json-parameters-2" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#create-account" class="toc-h1 toc-link" data-title="Create Account">Create Account</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#json-parameters-3" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
-                  </li>
-              </ul>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -271,12 +241,12 @@
 <blockquote>
 <p>To send an authentication code via sms:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="s1">'{"phone":"512-123-4567"}'</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="s1">'{"phone":"512-123-4567","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
 </code></pre>
 <blockquote>
 <p>To send an authentication code via email:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="s1">'{"email":"you@example.com"}'</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="s1">'{"email":"you@example.com","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
 </code></pre>
 <blockquote>
 <p>To verify the sms code:</p>
@@ -288,102 +258,129 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="s1">'{"email":"you@example.com","code":"4545"}'</span>
 </code></pre>
-<p>This endpoint authenticates a user.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://api.goknow.me/v1/auth</code></p>
-<h3 id='json-parameters'>JSON Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>phone</td>
-<td>the phone number to be verified</td>
-</tr>
-<tr>
-<td>email</td>
-<td>the email address to be verified</td>
-</tr>
-<tr>
-<td>code</td>
-<td>the verification code</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-phone or email may be used for authentication, but not both
-</aside>
-<h1 id='check-account'>Check Account</h1>
 <blockquote>
-<p>Check the existance of an account phone number:</p>
+<p>success returns key/secret pair and profile information:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/check_account -X POST -d <span class="s1">'{"phone":"512-123-4567"}'</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"public_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f5f2d688-80ff-11ea-8262-1c3cfbd1f923"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ship"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
+
+</span><span class="err">This</span><span class="w"> </span><span class="err">endpoint</span><span class="w"> </span><span class="err">authenticates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">user.</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">HTTP</span><span class="w"> </span><span class="err">Request</span><span class="w">
+
+</span><span class="err">`POST</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//api.goknow.me/v</span><span class="mi">1</span><span class="err">/auth`</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">Parameters</span><span class="w">
+
+</span><span class="err">Parameter</span><span class="w"> </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">
+</span><span class="err">---------</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="err">-----------</span><span class="w">
+</span><span class="err">phone</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">phone</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">verified</span><span class="w">
+</span><span class="err">email</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">address</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">verified</span><span class="w">
+</span><span class="err">site_id</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">site</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">requesting</span><span class="w"> </span><span class="err">authentication</span><span class="w">
+</span><span class="err">code</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">verification</span><span class="w"> </span><span class="err">code</span><span class="w">
+
+</span><span class="err">&lt;aside</span><span class="w"> </span><span class="err">class=</span><span class="s2">"success"</span><span class="err">&gt;</span><span class="w">
+</span><span class="err">phone</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">may</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">used</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">authentication</span><span class="p">,</span><span class="w"> </span><span class="err">but</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">both</span><span class="w">
+</span><span class="err">&lt;/aside&gt;</span><span class="w">
+
+</span><span class="err">#</span><span class="w"> </span><span class="err">Check</span><span class="w"> </span><span class="err">Account</span><span class="w">
+
+</span><span class="err">&gt;</span><span class="w"> </span><span class="err">Check</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">existance</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">account</span><span class="w"> </span><span class="err">phone</span><span class="w"> </span><span class="err">number</span><span class="p">:</span><span class="w">
+
+</span><span class="err">```shell</span><span class="w">
+</span><span class="err">curl</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//api.goknow.me/v</span><span class="mi">1</span><span class="err">/check_account</span><span class="w"> </span><span class="err">-X</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">-d</span><span class="w"> </span><span class="err">'</span><span class="p">{</span><span class="s2">"phone"</span><span class="p">:</span><span class="s2">"512-123-4567"</span><span class="p">,</span><span class="s2">"site_id"</span><span class="p">:</span><span class="s2">"a7ce0404-80fb-11ea-8c17-d63afbd1f923"</span><span class="p">}</span><span class="err">'</span><span class="w">
+</span></code></pre>
 <blockquote>
 <p>Check the existance of an account email address:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/check_account -X POST -d <span class="s1">'{"email":"you@example.com"}'</span>
-</code></pre>
-<p>This endpoint checks to see if an account exists.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://api.goknow.me/v1/check_account</code></p>
-<h3 id='json-parameters-2'>JSON Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>phone</td>
-<td>the phone number to check</td>
-</tr>
-<tr>
-<td>email</td>
-<td>the email address to check</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-phone or email may be used for checking an account, but not both
-</aside>
-<h1 id='create-account'>Create Account</h1>
-<blockquote>
-<p>Create an account from a phone number:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/create_account -X POST -d <span class="s1">'{"phone":"512-123-4567"}'</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/check_account -X POST -d <span class="s1">'{"email":"you@example.com","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
 </code></pre>
 <blockquote>
-<p>Create an account from an email address:</p>
+<p>success public profile information:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/create_account -X POST -d <span class="s1">'{"email":"you@example.com"}'</span>
-</code></pre>
-<p>This endpoint checks to see if an account exists.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://api.goknow.me/v1/check_account</code></p>
-<h3 id='json-parameters-3'>JSON Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>phone</td>
-<td>the phone number</td>
-</tr>
-<tr>
-<td>email</td>
-<td>the email address</td>
-</tr>
-</tbody></table>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"public_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">data</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ship"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<aside class="success">
-phone or email may be used for creating an account, but not both
-</aside>
-<h1 id='errors'>Errors</h1>
+</span><span class="err">This</span><span class="w"> </span><span class="err">endpoint</span><span class="w"> </span><span class="err">checks</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">account</span><span class="w"> </span><span class="err">exists.</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">HTTP</span><span class="w"> </span><span class="err">Request</span><span class="w">
+
+</span><span class="err">`POST</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//api.goknow.me/v</span><span class="mi">1</span><span class="err">/check_account`</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">Parameters</span><span class="w">
+
+</span><span class="err">Parameter</span><span class="w"> </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">
+</span><span class="err">---------</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="err">-----------</span><span class="w">
+</span><span class="err">phone</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">phone</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">check</span><span class="w">
+</span><span class="err">email</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">address</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">check</span><span class="w">
+</span><span class="err">site_id</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">site</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">requesting</span><span class="w"> </span><span class="err">authentication</span><span class="w">
+
+</span><span class="err">&lt;aside</span><span class="w"> </span><span class="err">class=</span><span class="s2">"success"</span><span class="err">&gt;</span><span class="w">
+</span><span class="err">phone</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">may</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">used</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">checking</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">account</span><span class="p">,</span><span class="w"> </span><span class="err">but</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">both</span><span class="w">
+</span><span class="err">&lt;/aside&gt;</span><span class="w">
+
+</span><span class="err">#</span><span class="w"> </span><span class="err">Create</span><span class="w"> </span><span class="err">Account</span><span class="w">
+
+</span><span class="err">&gt;</span><span class="w"> </span><span class="err">Create</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">account</span><span class="p">:</span><span class="w">
+
+</span><span class="err">```shell</span><span class="w">
+</span><span class="err">curl</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//api.goknow.me/v</span><span class="mi">1</span><span class="err">/create_account</span><span class="w"> </span><span class="err">-X</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">-d</span><span class="w"> </span><span class="err">'</span><span class="p">{</span><span class="s2">"phone"</span><span class="p">:</span><span class="s2">"512-123-4567"</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"you@example.com"</span><span class="p">,</span><span class="s2">"site_id"</span><span class="p">:</span><span class="s2">"a7ce0404-80fb-11ea-8c17-d63afbd1f923"</span><span class="p">}</span><span class="err">'</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>success returns key/secret pair and profile information:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"public_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f5f2d688-80ff-11ea-8262-1c3cfbd1f923"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ship"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
+
+</span><span class="err">This</span><span class="w"> </span><span class="err">endpoint</span><span class="w"> </span><span class="err">checks</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">account</span><span class="w"> </span><span class="err">exists.</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">HTTP</span><span class="w"> </span><span class="err">Request</span><span class="w">
+
+</span><span class="err">`POST</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//api.goknow.me/v</span><span class="mi">1</span><span class="err">/create_account`</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">Parameters</span><span class="w">
+
+</span><span class="err">Parameter</span><span class="w"> </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">
+</span><span class="err">---------</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="err">-----------</span><span class="w">
+</span><span class="err">phone</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">phone</span><span class="w"> </span><span class="err">number</span><span class="w">
+</span><span class="err">email</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">address</span><span class="w">
+</span><span class="err">site_id</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">site</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">requesting</span><span class="w"> </span><span class="err">authentication</span><span class="w">
+
+</span><span class="err">&lt;aside</span><span class="w"> </span><span class="err">class=</span><span class="s2">"success"</span><span class="err">&gt;</span><span class="w">
+</span><span class="err">phone</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">both</span><span class="w"> </span><span class="err">may</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">used</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">creating</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">account</span><span class="w">
+</span><span class="err">&lt;/aside&gt;</span><span class="w">
+
+
+
+</span></code></pre><h1 id='errors'>Errors</h1>
 <blockquote>
 <p>Error content follows the same format:</p>
 </blockquote>
@@ -512,6 +509,18 @@ phone or email may be used for creating an account, but not both
 <tr>
 <td>24</td>
 <td>email address could not be unlocked</td>
+</tr>
+<tr>
+<td>25</td>
+<td>card details invalid</td>
+</tr>
+<tr>
+<td>26</td>
+<td>shipping details invalid</td>
+</tr>
+<tr>
+<td>27</td>
+<td>no site found</td>
 </tr>
 </tbody></table>
 
