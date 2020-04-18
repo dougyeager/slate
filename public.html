@@ -404,20 +404,20 @@ phone or email may be used for checking an account, but not both
       "site_id": "a7ce0404-80fb-11ea-8c17-d63afbd1f923", \
       "details": { \
         "card": { \
-            "pan": "4147202412345678", \
-              "exp_mo": "06", \
-            "exp_yr": "2020", \
-              "zip": "78731", \
-              "code": "123" \
+        "pan": "4147202412345678", \
+        "exp_mo": "06", \
+        "exp_yr": "2020", \
+        "zip": "78731", \
+        "code": "123" \
           }, \
           "profile": { \
-              "data": "test", \
-              "public_data": "test2" \
+        "data": "test", \
+        "public_data": "test2" \
           }, \
           "ship": { \
-              "name": "Doug Yeager", \
-              "zip": "78731", \
-              "address": "7200 Spurlock Dr." \
+        "name": "Doug Yeager", \
+        "zip": "78731", \
+        "address": "7200 Spurlock Dr." \
           } \
       } \
   }'</span> 
@@ -467,7 +467,7 @@ phone or email may be used for checking an account, but not both
 <tr>
 <td>details</td>
 <td>N</td>
-<td>profile information</td>
+<td>details object data</td>
 </tr>
 </tbody></table>
 
@@ -492,6 +492,83 @@ phone or email may be used for checking an account, but not both
 <td>profile</td>
 <td>N</td>
 <td>profile object data</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>card object</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pan</td>
+<td>Y</td>
+<td>card account number</td>
+</tr>
+<tr>
+<td>exp_mo</td>
+<td>Y</td>
+<td>2 digit month for card expiry</td>
+</tr>
+<tr>
+<td>exp_yr</td>
+<td>Y</td>
+<td>4 digit year for card expiry</td>
+</tr>
+<tr>
+<td>zip</td>
+<td>Y</td>
+<td>zip code attached to the card</td>
+</tr>
+<tr>
+<td>code</td>
+<td>Y</td>
+<td>secret code on the back of the card</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>ship object</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Y</td>
+<td>shipping name</td>
+</tr>
+<tr>
+<td>address</td>
+<td>Y</td>
+<td>shipping address line</td>
+</tr>
+<tr>
+<td>zip</td>
+<td>Y</td>
+<td>shipping zip code</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>profile object</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>N</td>
+<td>data that is protected by auth</td>
+</tr>
+<tr>
+<td>public_data</td>
+<td>N</td>
+<td>data that is accessible to anyone</td>
 </tr>
 </tbody></table>
 
