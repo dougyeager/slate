@@ -398,7 +398,29 @@ phone or email may be used for checking an account, but not both
 <p>Create an account:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/create_account -X POST -d <span class="se">\</span>
- <span class="s1">'{"phone":"512-123-4567","email":"you@example.com","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
+ <span class="s1">'{
+      "phone": "512-123-4567", \
+      "email": "you@example.com",
+      "site_id": "a7ce0404-80fb-11ea-8c17-d63afbd1f923", \
+      "details": { \
+        "card": { \
+            "pan": "4147202412345678", \
+              "exp_mo": "06", \
+            "exp_yr": "2020", \
+              "zip": "78731", \
+              "code": "123" \
+          }, \
+          "profile": { \
+              "data": "test", \
+              "public_data": "test2" \
+          }, \
+          "ship": { \
+              "name": "Doug Yeager", \
+              "zip": "78731", \
+              "address": "7200 Spurlock Dr." \
+          } \
+      } \
+  }'</span> 
 </code></pre>
 <blockquote>
 <p>success returns key/secret pair and profile information:</p>
@@ -423,20 +445,53 @@ phone or email may be used for checking an account, but not both
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>phone</td>
+<td>Y</td>
 <td>the phone number</td>
 </tr>
 <tr>
 <td>email</td>
+<td>Y</td>
 <td>the email address</td>
 </tr>
 <tr>
 <td>site_id</td>
+<td>Y</td>
 <td>the site ID that is requesting authentication</td>
+</tr>
+<tr>
+<td>details</td>
+<td>N</td>
+<td>profile information</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>details object</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>card</td>
+<td>N</td>
+<td>card object data</td>
+</tr>
+<tr>
+<td>ship</td>
+<td>N</td>
+<td>shiping address object data</td>
+</tr>
+<tr>
+<td>profile</td>
+<td>N</td>
+<td>profile object data</td>
 </tr>
 </tbody></table>
 
