@@ -255,6 +255,115 @@
               </ul>
           </li>
           <li>
+            <a href="#account" class="toc-h1 toc-link" data-title="Account">Account</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#json-parameters-4" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#add-card" class="toc-h1 toc-link" data-title="Add card">Add card</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-5" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#json-parameters-5" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#add-ship" class="toc-h1 toc-link" data-title="Add ship">Add ship</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-6" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#json-parameters-6" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#add-email" class="toc-h1 toc-link" data-title="Add email">Add email</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-7" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#json-parameters-7" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#add-phone" class="toc-h1 toc-link" data-title="Add phone">Add phone</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-8" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#json-parameters-8" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#update-profile" class="toc-h1 toc-link" data-title="Update profile">Update profile</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-9" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#json-parameters-9" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#save-public-data" class="toc-h1 toc-link" data-title="Save public data">Save public data</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-10" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#json-parameters-10" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#details-object" class="toc-h1 toc-link" data-title="Details object">Details object</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#attributes" class="toc-h2 toc-link" data-title="Attributes">Attributes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#card-object" class="toc-h1 toc-link" data-title="Card object">Card object</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#attributes-2" class="toc-h2 toc-link" data-title="Attributes">Attributes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#ship-object" class="toc-h1 toc-link" data-title="Ship object">Ship object</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#attributes-3" class="toc-h2 toc-link" data-title="Attributes">Attributes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#profile-object" class="toc-h1 toc-link" data-title="Profile object">Profile object</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#attributes-4" class="toc-h2 toc-link" data-title="Attributes">Attributes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -396,28 +505,28 @@ phone or email may be used for checking an account, but not both
 <p>Create an account:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/create_account -X POST -d <span class="se">\</span>
- <span class="s1">'{ \
-      "phone": "512-123-4567", \
-      "email": "you@example.com", \
-      "site_id": "a7ce0404-80fb-11ea-8c17-d63afbd1f923", \
-      "details": { \
-        "card": { \
+  <span class="s1">'{ \
+    "phone": "512-123-4567", \
+    "email": "you@example.com", \
+    "site_id": "a7ce0404-80fb-11ea-8c17-d63afbd1f923", \
+    "details": { \
+      "card": { \
         "pan": "4147202412345678", \
         "exp_mo": "06", \
         "exp_yr": "2020", \
         "zip": "78731", \
         "code": "123" \
-          }, \
-          "profile": { \
-        "data": "test", \
-        "public_data": "test2" \
-          }, \
-          "ship": { \
+      }, \
+      "profile": { \
+        "data": "sensitive info", \
+        "public_data": "hello world" \
+      }, \
+      "ship": { \
         "name": "Doug Yeager", \
         "zip": "78731", \
         "address": "7200 Spurlock Dr." \
-          } \
       } \
+    } \
   }'</span> 
 </code></pre>
 <blockquote>
@@ -461,6 +570,277 @@ phone or email may be used for checking an account, but not both
 </tr>
 </tbody></table>
 
+<aside class="success">
+phone or email or both may be used for creating an account
+</aside>
+<h1 id='account'>Account</h1>
+<blockquote>
+<p>To retreive information associated with a user:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/account -X POST -d <span class="se">\</span>
+ <span class="s1">'{"key":"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923","secret":"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923"}'</span>
+</code></pre>
+<blockquote>
+<p>success returns profile information:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"public_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ship"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves user information.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://api.goknow.me/v1/account</code></p>
+<h3 id='json-parameters-4'>JSON Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>user profile key</td>
+</tr>
+<tr>
+<td>secret</td>
+<td>user profile secret</td>
+</tr>
+</tbody></table>
+<h1 id='add-card'>Add card</h1>
+<blockquote>
+<p>add a card to a user account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/add_card -X POST -d <span class="se">\</span>
+ <span class="s1">'{ \
+    "key":"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923", \
+    "secret":"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923", \
+    "card": { \
+      "pan": "4147202412345678", \
+      "exp_mo": "06", \
+      "exp_yr": "2020", \
+      "zip": "78731", \
+      "code": "123" \
+    }, \
+  }'</span>
+</code></pre>
+<p>This endpoint adds a card in a user account. </p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://api.goknow.me/v1/add_card</code></p>
+<h3 id='json-parameters-5'>JSON Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>user profile key</td>
+</tr>
+<tr>
+<td>secret</td>
+<td>user profile secret</td>
+</tr>
+<tr>
+<td>card</td>
+<td>card object</td>
+</tr>
+</tbody></table>
+<h1 id='add-ship'>Add ship</h1>
+<blockquote>
+<p>add a shipping address to a user account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/add_ship -X POST -d <span class="se">\</span>
+ <span class="s1">'{ \
+    "key":"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923", \
+    "secret":"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923", \
+    "ship": { \
+      "name": "Doug Yeager", \
+      "zip": "78731", \
+      "address": "7200 Spurlock Dr." \
+    } \
+  }'</span>
+</code></pre>
+<p>This endpoint adds a shipping address in a user account. </p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST https://api.goknow.me/v1/add_card</code></p>
+<h3 id='json-parameters-6'>JSON Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>user profile key</td>
+</tr>
+<tr>
+<td>secret</td>
+<td>user profile secret</td>
+</tr>
+<tr>
+<td>ship</td>
+<td>ship object</td>
+</tr>
+</tbody></table>
+<h1 id='add-email'>Add email</h1>
+<blockquote>
+<p>add an email address to a user account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/add_email -X POST -d <span class="se">\</span>
+ <span class="s1">'{ \
+    "key":"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923", \
+    "secret":"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923", \
+    "email": "you@example.com" \
+  }'</span>
+</code></pre>
+<p>This endpoint adds an email address in a user account. </p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST https://api.goknow.me/v1/add_email</code></p>
+<h3 id='json-parameters-7'>JSON Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>user profile key</td>
+</tr>
+<tr>
+<td>secret</td>
+<td>user profile secret</td>
+</tr>
+<tr>
+<td>email</td>
+<td>email address</td>
+</tr>
+</tbody></table>
+<h1 id='add-phone'>Add phone</h1>
+<blockquote>
+<p>add a phone number to a user account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/add_phone -X POST -d <span class="se">\</span>
+ <span class="s1">'{ \
+    "key":"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923", \
+    "secret":"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923", \
+    "phone": "512-123-4567" \
+  }'</span>
+</code></pre>
+<p>This endpoint adds an phone number in a user account. </p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST https://api.goknow.me/v1/add_phone</code></p>
+<h3 id='json-parameters-8'>JSON Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>user profile key</td>
+</tr>
+<tr>
+<td>secret</td>
+<td>user profile secret</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>phone number</td>
+</tr>
+</tbody></table>
+<h1 id='update-profile'>Update profile</h1>
+<blockquote>
+<p>update a user account profile data:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/update_profile -X POST -d <span class="se">\</span>
+ <span class="s1">'{ \
+    "key":"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923", \
+    "secret":"f5f2d28c-80ff-11ea-8262-1c3cfbd1f923", \
+    "profile": { \
+      "data": "sensitive info", \
+      "public_data": "hello world" \
+    }, \
+  }'</span>
+</code></pre>
+<p>This endpoint updates profile data information in a user account. </p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>POST https://api.goknow.me/v1/update_profile</code></p>
+<h3 id='json-parameters-9'>JSON Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>user profile key</td>
+</tr>
+<tr>
+<td>secret</td>
+<td>user profile secret</td>
+</tr>
+<tr>
+<td>profile</td>
+<td>profile object</td>
+</tr>
+</tbody></table>
+<h1 id='save-public-data'>Save public data</h1>
+<blockquote>
+<p>save profile public data to a phone number:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="se">\</span>
+ <span class="s1">'{"phone":"512-123-4567","site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923"}'</span>
+</code></pre>
+<blockquote>
+<p>save profile public data to an email address:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.goknow.me/v1/auth -X POST -d <span class="se">\ </span>
+ <span class="s1">'{ \
+    "email":"you@example.com", \
+    "site_id":"a7ce0404-80fb-11ea-8c17-d63afbd1f923", \
+    "profile_public_data":"hello world" \
+  }'</span>
+</code></pre>
+<p>This endpoint saves profile public data in a user account. </p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>POST https://api.goknow.me/v1/save_profile_public_data</code></p>
+<h3 id='json-parameters-10'>JSON Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>phone</td>
+<td>the phone number to be verified</td>
+</tr>
+<tr>
+<td>email</td>
+<td>the email address to be verified</td>
+</tr>
+<tr>
+<td>site_id</td>
+<td>the site ID that is requesting authentication</td>
+</tr>
+<tr>
+<td>profile_public_data</td>
+<td>data to save</td>
+</tr>
+</tbody></table>
+<h1 id='details-object'>Details object</h1><h3 id='attributes'>Attributes</h3>
 <table><thead>
 <tr>
 <th>details object</th>
@@ -471,20 +851,20 @@ phone or email may be used for checking an account, but not both
 <tr>
 <td>card</td>
 <td>N</td>
-<td>card object data</td>
+<td>card object</td>
 </tr>
 <tr>
 <td>ship</td>
 <td>N</td>
-<td>shiping address object data</td>
+<td>shiping address object</td>
 </tr>
 <tr>
 <td>profile</td>
 <td>N</td>
-<td>profile object data</td>
+<td>profile object</td>
 </tr>
 </tbody></table>
-
+<h1 id='card-object'>Card object</h1><h3 id='attributes-2'>Attributes</h3>
 <table><thead>
 <tr>
 <th>card object</th>
@@ -518,7 +898,7 @@ phone or email may be used for checking an account, but not both
 <td>secret code on the back of the card</td>
 </tr>
 </tbody></table>
-
+<h1 id='ship-object'>Ship object</h1><h3 id='attributes-3'>Attributes</h3>
 <table><thead>
 <tr>
 <th>ship object</th>
@@ -542,7 +922,7 @@ phone or email may be used for checking an account, but not both
 <td>shipping zip code</td>
 </tr>
 </tbody></table>
-
+<h1 id='profile-object'>Profile object</h1><h3 id='attributes-4'>Attributes</h3>
 <table><thead>
 <tr>
 <th>profile object</th>
@@ -561,10 +941,6 @@ phone or email may be used for checking an account, but not both
 <td>data that is accessible to anyone</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-phone or email or both may be used for creating an account
-</aside>
 <h1 id='errors'>Errors</h1>
 <blockquote>
 <p>Error content follows the same format:</p>
@@ -706,6 +1082,50 @@ phone or email or both may be used for creating an account
 <tr>
 <td>27</td>
 <td>no site found</td>
+</tr>
+<tr>
+<td>28</td>
+<td>email address exists</td>
+</tr>
+<tr>
+<td>29</td>
+<td>phone exists</td>
+</tr>
+<tr>
+<td>30</td>
+<td>no profile found</td>
+</tr>
+<tr>
+<td>31</td>
+<td>card exists</td>
+</tr>
+<tr>
+<td>32</td>
+<td>shipping address exists</td>
+</tr>
+<tr>
+<td>33</td>
+<td>card is not linked</td>
+</tr>
+<tr>
+<td>34</td>
+<td>shiping address is not linked</td>
+</tr>
+<tr>
+<td>35</td>
+<td>profile details invalid</td>
+</tr>
+<tr>
+<td>400</td>
+<td>invalid request, not specific</td>
+</tr>
+<tr>
+<td>401</td>
+<td>unauthorized, not specific</td>
+</tr>
+<tr>
+<td>404</td>
+<td>not found, not specific</td>
 </tr>
 </tbody></table>
 
