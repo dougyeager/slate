@@ -336,7 +336,7 @@
 <pre class="highlight shell tab-shell"><code>curl /v1/verify -X POST -d <span class="s1">'{"email":"you@example.com","code":"4545"}'</span>
 </code></pre>
 <blockquote>
-<p>success returns a consumer id and token:</p>
+<p>verify success returns a consumer id and token:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923"</span><span class="p">,</span><span class="w">
@@ -387,7 +387,7 @@ phone or email may be used for authentication, but not both
 <pre class="highlight shell tab-shell"><code>curl /v1/email -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923"}'</span>
 </code></pre>
 <blockquote>
-<p>success returns a list of emails:</p>
+<p>list success returns a list of emails:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="s2">"you@example.com"</span><span class="p">,</span><span class="w">
@@ -438,7 +438,7 @@ phone or email may be used for authentication, but not both
 <pre class="highlight shell tab-shell"><code>curl /v1/phone -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923"}'</span>
 </code></pre>
 <blockquote>
-<p>success returns a list of phone numbers:</p>
+<p>list success returns a list of phone numbers:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -592,7 +592,7 @@ phone or email may be used for authentication, but not both
 <pre class="highlight shell tab-shell"><code>curl /v1/card -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923"}'</span>
 </code></pre>
 <blockquote>
-<p>success returns a list of cards (primary is the first one):</p>
+<p>list success returns a list of cards (primary is the first one):</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -673,7 +673,7 @@ phone or email may be used for authentication, but not both
 <pre class="highlight shell tab-shell"><code>curl /v1/ship -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923"}'</span>
 </code></pre>
 <blockquote>
-<p>success returns a list of shipping addresses (primary is the first one):</p>
+<p>list success returns a list of shipping addresses (primary is the first one):</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -729,14 +729,14 @@ phone or email may be used for authentication, but not both
 <pre class="highlight shell tab-shell"><code>curl /v1/profile -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923"}'</span>
 </code></pre>
 <blockquote>
-<p>success returns a list of shipping addresses (primary is the first one):</p>
+<p>list success returns a list of shipping addresses (primary is the first one):</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"01afcd1c-8404-11ea-984b-20e1448f4db1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Know Inc."</span><span class="p">,</span><span class="w"> 
-     </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
