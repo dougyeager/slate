@@ -277,6 +277,39 @@
               </ul>
           </li>
           <li>
+            <a href="#card" class="toc-h1 toc-link" data-title="Card">Card</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-6" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#json-parameters-6" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#ship" class="toc-h1 toc-link" data-title="Ship">Ship</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-7" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#json-parameters-7" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#profile" class="toc-h1 toc-link" data-title="Profile">Profile</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-8" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#json-parameters-8" class="toc-h2 toc-link" data-title="JSON Parameters">JSON Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -526,6 +559,210 @@ phone or email may be used for authentication, but not both
 <td>consumer token</td>
 </tr>
 </tbody></table>
+<h1 id='card'>Card</h1>
+<blockquote>
+<p>To add a card to an account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl /v1/card -X POST -d <span class="se">\</span>
+ <span class="s1">'{ \
+    "id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923", \
+    "token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923", \
+    "create":{ \
+      "pan":"4147202412345678", \
+      "exp_mo":"06", \
+      "exp_yr":"2020", \
+      "code":"123", \
+      "zip":"78731" \
+    } \
+  }'</span>
+</code></pre>
+<blockquote>
+<p>To delete a card from an account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl /v1/card -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923","delete":"01afcd1c-8404-11ea-984b-20e1448f4db1"}'</span>
+</code></pre>
+<blockquote>
+<p>To make a card the primary card in the account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl /v1/card -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923","primary":"01afcd1c-8404-11ea-984b-20e1448f4db1"}'</span>
+</code></pre>
+<blockquote>
+<p>To list the cards associated with an account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl /v1/card -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923"}'</span>
+</code></pre>
+<blockquote>
+<p>success returns a list of cards (primary is the first one):</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"01afcd1c-8404-11ea-984b-20e1448f4db1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"last_four"</span><span class="p">:</span><span class="s2">"3101"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"e7847f82-8403-11ea-acc0-1ae1448f4db1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"last_four"</span><span class="p">:</span><span class="s2">"3100"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint reads, adds, or deletes a card from an existing account.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST /v1/card</code></p>
+<h3 id='json-parameters-6'>JSON Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>consumer id</td>
+</tr>
+<tr>
+<td>token</td>
+<td>consumer token</td>
+</tr>
+<tr>
+<td>create</td>
+<td>the card object to add</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>the card id to delete</td>
+</tr>
+<tr>
+<td>primary</td>
+<td>the card id to make primary</td>
+</tr>
+</tbody></table>
+<h1 id='ship'>Ship</h1>
+<blockquote>
+<p>To add a shipping address to an account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl /v1/ship -X POST -d <span class="se">\</span>
+ <span class="s1">'{ \
+    "id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923", \
+    "token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923", \
+    "create":{ \
+      "name":"Doug Yeager", \
+      "address":"7200 Spurlock Dr.", \
+      "zip":"78731" \
+    } \
+  }'</span>
+</code></pre>
+<blockquote>
+<p>To delete a shipping address from an account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl /v1/ship -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923","delete":"01afcd1c-8404-11ea-984b-20e1448f4db1"}'</span>
+</code></pre>
+<blockquote>
+<p>To make a shipping address the primary address in the account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl /v1/ship -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923","primary":"01afcd1c-8404-11ea-984b-20e1448f4db1"}'</span>
+</code></pre>
+<blockquote>
+<p>To list the shipping addresses associated with an account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl /v1/ship -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923"}'</span>
+</code></pre>
+<blockquote>
+<p>success returns a list of shipping addresses (primary is the first one):</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"01afcd1c-8404-11ea-984b-20e1448f4db1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Doug Yeager"</span><span class="p">,</span><span class="w"> 
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="s2">"7200 Spurlock Dr."</span><span class="p">,</span><span class="w"> 
+      </span><span class="s2">"zip"</span><span class="p">:</span><span class="s2">"78731"</span><span class="w"> 
+     </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint reads, adds, or deletes a shipping address from an existing account.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST /v1/ship</code></p>
+<h3 id='json-parameters-7'>JSON Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>consumer id</td>
+</tr>
+<tr>
+<td>token</td>
+<td>consumer token</td>
+</tr>
+<tr>
+<td>create</td>
+<td>the ship object to add</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>the ship id to delete</td>
+</tr>
+<tr>
+<td>primary</td>
+<td>the ship id to make primary</td>
+</tr>
+</tbody></table>
+<h1 id='profile'>Profile</h1>
+<blockquote>
+<p>To delete a site profile from an account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl /v1/profile -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923","delete":"01afcd1c-8404-11ea-984b-20e1448f4db1"}'</span>
+</code></pre>
+<blockquote>
+<p>To list the site profiles associated with an account:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl /v1/profile -X POST -d <span class="s1">'{"id":"7242c2ac-7b6a-11ea-93c5-fd0bfbd1f923","token":"96359f9a-7b6a-11ea-9c52-030cfbd1f923"}'</span>
+</code></pre>
+<blockquote>
+<p>success returns a list of shipping addresses (primary is the first one):</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"01afcd1c-8404-11ea-984b-20e1448f4db1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Know Inc."</span><span class="p">,</span><span class="w"> 
+     </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint reads or deletes a site profile from an existing account.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST /v1/profile</code></p>
+<h3 id='json-parameters-8'>JSON Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>consumer id</td>
+</tr>
+<tr>
+<td>token</td>
+<td>consumer token</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>the ship id to delete</td>
+</tr>
+</tbody></table>
 <h1 id='errors'>Errors</h1>
 <blockquote>
 <p>Error content follows the same format:</p>
@@ -694,7 +931,7 @@ phone or email may be used for authentication, but not both
 </tr>
 <tr>
 <td>34</td>
-<td>shiping address is not linked</td>
+<td>shipping address is not linked</td>
 </tr>
 <tr>
 <td>35</td>
